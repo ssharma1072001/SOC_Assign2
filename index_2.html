@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Index 2</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<script>
+    function filter(){
+        var myName = document.getElementById("myInput").value.toLowerCase();
+        var len = document.getElementById("myTable").rows.length;
+        var str = [];
+        var n;
+        var i;
+
+        for(i=0;i<len-1;i++){
+            str[i] = document.getElementsByTagName("td")[(3*i)+1].innerText.toLowerCase();
+            n = str[i].includes(myName);
+
+            if(n == 0){
+            document.getElementsByTagName("tr")[i+1].style.display = "none";
+            }
+
+            else{
+            document.getElementsByTagName("tr")[i+1].style.display = "";
+            }
+        }
+    }
+</script>
+
+<body>
+    <br> <br> <br> 
+    <div class = "container jumbotron">
+    <b>Name</b>:<input type="text" placeholder = "Enter Name" id="myInput">
+    <input type="button" value="Go" onclick="filter()"> <br>
+
+    </div>
+    <div class = "container">
+        <table class = "table table-striped table-bordered table-hover" id = "myTable">
+            <thead class="thead-dark">
+                <tr>
+                    <th><b>Roll No</b></th>
+                    <th><b>Name</b></th>
+                    <th><b>Year</b></th>
+                </tr>
+            </thead> 
+            <tbody>
+                <tr class = "table-success">
+                    <td>180666</td>
+                    <td>Sandeep Sharma</td>
+                    <td>Y18</td>
+                </tr>
+                <tr class = "table-primary">
+                    <td>180075</td>
+                    <td>Aman Verma</td>
+                    <td>Y18</td>
+                </tr>
+                <tr class = "table-danger">
+                    <td>180401</td>
+                    <td>Manas Agarwal</td>
+                    <td>Y18</td>
+                </tr>
+                <tr class = "table-warning">
+                    <td>180351</td>
+                    <td>Kaustav Sen</td>
+                    <td>Y18</td>
+                </tr>
+                <tr class = "table-info">
+                    <td>180653</td>
+                    <td>Sakshi</td>
+                    <td>Y18</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
