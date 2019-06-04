@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <title>
+            Index 1
+        </title>
+
+        <style>
+            img{
+              position:absolute;
+              left: 25%;
+              top : 5%;
+              height: 50%;
+              width: 50%;  
+            }
+            #previous{
+              position:absolute;
+              left: 26%;
+              top : 30%;  
+              background-color: white;
+              border: none;
+              border-radius: 50px;
+              font-size: 40px;
+              z-index: 4;
+
+            }
+            #next{
+              position:absolute;
+              left: 71%;
+              top : 30%;  
+              background-color:white;
+              border: none;
+              border-radius: 50px;
+              font-size: 40px;
+              z-index: 4;
+            }   
+            #previous:hover {
+                background-color: blue;
+                border:none;
+            }
+            #next:hover {
+                background-color: blue;
+                border:none;
+            }
+            body{
+                background-image: url("logo.jpeg");
+                background-repeat: no-repeat;
+                background-size:cover;
+            }
+
+        </style>
+    </head>
+
+    <script>
+
+        var images = document.getElementsByTagName("img");
+        var i = images.length;
+
+        function next(){
+            if(i == 0){
+                i=images.length;
+                for(i=0;i<images.length;i++){
+                    images[i].style.zIndex = 1;
+                }
+            }
+            images[i-1].style.zIndex = -1;
+            i--;
+        }
+
+        function prev(){
+            if(i == images.length){
+                for(i=0;i<images.length;i++){
+                    images[i].style.zIndex = -1;
+                }
+                i=0;
+            }
+            images[i].style.zIndex = 2;
+            i++;
+        }
+
+    </script>
+
+    <body>
+        <img src="ted1.jpg" id="img1">
+        <img src="ted2.jpg" id="img2">
+        <img src="ted3.jpg" id="img3">
+        <img src="ted4.jpg" id="img4">
+        <input type="button" value="<<" id="previous" onclick="prev()">
+        <input type="button" value=">>" id="next" onclick="next()">
+    </body>
+</html>
